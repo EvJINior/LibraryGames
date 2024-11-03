@@ -1,4 +1,4 @@
-import { Container, Card, Typography, CardActionArea, CardContent, CardActions, Button, Box } from '@mui/material';
+import { Container, Card, Typography, CardActionArea, CardContent, CardActions, Button, Box, Stack } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import React, { useMemo } from 'react';
 import Tabs from '@mui/material/Tabs';
@@ -7,32 +7,39 @@ import { type } from '@testing-library/user-event/dist/type';
 import GamesApi from '../../api/gamesapi'
 import GetDate from '../../service/getdate'
 
+import Desc from './gameInfo/description'
+import Images from './gameInfo/images'
+import Comments from './gameInfo/comments'
+
 const GameInfo = ({ id }) => {
 
     const [value, setValue] = React.useState('1')
     const [agreementGameID, setAgreementGameID] = React.useState()
-    let gettinID = id
+    const [takeComments, setTakeComments] = React.useState([])
+    const [addComment, setAddComment] = React.useState()
+    // const takeComments = []
+    // let gettinID = id
     // const [getDateServer, setGetDateServer] = React.useState()
     // const [val, setVal] = React.useState(id)
 
     // исправить
-    if (gettinID === undefined) {
+    // if (gettinID === undefined) {
 
-        gettinID = 1
+    //     gettinID = 1
 
-    }
+    // }
 
 
 
     // console.log("начальный ID: ", id)
-    console.log("начальный agreementGameID: ", agreementGameID)
+    // console.log("начальный agreementGameID: ", agreementGameID)
 
     React.useEffect(() => {
         // if (agreementGameID == )
         // console.log("начальный ID: ", gettinID)
 
         const loading = () => {
-            GetDate.getByID(`${"?id="}${gettinID}`).then(
+            getById(`${"?id="}${id}`).then(
                 data => data?.forEach(item => {
                     setAgreementGameID(item)
                 })
@@ -40,41 +47,30 @@ const GameInfo = ({ id }) => {
         }
         loading()
 
-    }, [gettinID])
-
-    // if ( agreementGameID)
+    }, [id])
 
 
-
+    React.useEffect(() => {
+        GetDate.comments(`${"?gameID="}${id}`)
+            .then(
+                data => setTakeComments(data)
+            )
+            .catch(error => {
+            })
+    }, [id, takeComments])
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     }
 
-    function grapElements(array) {
-        let elem = []
-        if (array != undefined) {
-            for (let k = 0; k < array.length; k++) {
-                elem.push(<img src={array[k]} key={k} width="140" height="140" />)
-            }
-        }
-        return (<div>
-            {elem}
-        </div>)
-    }
-
-    // console.log("grapElements()")
-    // console.log(grapElements(agreementGameID?.images))
-
-
     const currentTab = useMemo(() => {
         switch (value) {
             case '1':
-                return agreementGameID?.descriptions
+                return Desc(agreementGameID)
             case '2':
-                return (<div> {grapElements(agreementGameID?.images)} </div>)
+                return (Images(agreementGameID))
             case '3':
-                return agreementGameID?.comments
+                return <Comments id={id} />
             default:
                 return agreementGameID?.descriptions
         }

@@ -1,13 +1,18 @@
 import { Container } from '@mui/material';
-// import Authorization from './views/authorization'
-import LibraryGames from './views/librarygames.jsx'
+import Auth from './views/auth';
+import Library from './views/library';
+import Index from './index'
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <Container maxWidth='md' >
-      {/* <Authorization /> */}
-      <LibraryGames />
-    </Container>
+    <>
+      <Routes>
+        <Route path='/' element={<Auth />} />
+        <Route path='library' element={<Library />} />
+      </Routes>
+
+    </>
   )
 }
 

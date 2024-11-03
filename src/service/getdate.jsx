@@ -1,28 +1,6 @@
 import GamesApi from '../api/gamesapi'
 
 class GetDate {
-    static addPost = obj => {
-        return GamesApi.addPostDate(obj)
-        .then(data => {                     
-            return Promise.resolve(data)
-        })
-        
-        .catch(error => {
-            return Promise.reject(error)
-        })
-    }
-
-    // static getUsers = filter => {
-    //     return GamesApi.getDateUsers(filter)
-    //     .then(data => {                     
-    //         return Promise.resolve(data)
-    //     })
-        
-    //     .catch(error => {
-    //         return Promise.reject(error)
-    //     })
-    // }
-
     static getByList = () => {
         return GamesApi.getList() 
             .then(data => {
@@ -53,6 +31,26 @@ class GetDate {
             return Promise.reject(error)
         })
     }
+
+
+
+///
+
+    static addPost = obj => {
+        return GamesApi.addPostDate(obj)
+        .then(data => {                     
+            return Promise.resolve(data)
+        })
+        
+        .catch(error => {
+            return Promise.reject(error)
+        })
+    }
+
+
+////
+    
+  
 }
 
 export default GetDate

@@ -1,8 +1,4 @@
 class GamesApi {
-  static getDateUsers = filter => {
-    const path = `${"http://localhost:3001"}/users${filter}`
-    return fetch(path, { method: 'GET' }).then(response => response.json())
-  }
 
   static getList = () => {
     const path = `${"http://localhost:3001"}/games`
@@ -14,8 +10,25 @@ class GamesApi {
     return fetch(path, { method: 'GET' }).then(response => response.json())
   }
 
+
+  ///
+
+
   static addPostDate = obj => {
     const path = `${"http://localhost:3001"}/users`
+    return fetch(path, { method: 'POST', body: JSON.stringify(obj) }).then(response => response.json())
+  }
+
+
+  ///
+
+  static getComments = id => {
+    const path = `${"http://localhost:3001"}/comments?gameID=${id}`
+    return fetch(path, { method: 'GET' }).then(response => response.json())
+  }
+
+  static addCommentUser = obj => {
+    const path = `${"http://localhost:3001"}/comments`
     return fetch(path, { method: 'POST', body: JSON.stringify(obj) }).then(response => response.json())
   }
 }
