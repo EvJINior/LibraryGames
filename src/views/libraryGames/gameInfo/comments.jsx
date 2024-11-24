@@ -1,86 +1,77 @@
 import { TextField, Box, Stack, Button } from '@mui/material';
-import React, { useState } from 'react';
-import GetDate from "../../../service/getdate"
-import { getById, add } from '../../service/comment'
+import React, { useState, useMemo, useEffect } from 'react';
+import { getById, add, defaultGetID } from '../../../../src/service/comments'
 
 const Comments = ({ id }) => {
 
-    const [value, setValue] = React.useState()
-    const [takeComments, setTakeComments] = React.useState([])
+    const [value, setValue] = useState()
+    const [takeComments, setTakeComments] = useState([])
+    const [post, setPost] = useState()
+    const [def, setdefault] = useState()
 
-    React.useEffect(() => {
+    const userDate = JSON.parse(localStorage.getItem('user'))
+
+    const handleChangeUser = (event) => {
+        setValue(event.target.value)
+    }
+
+    useMemo(() => {
+        defaultGetID(1)
+            .then(
+                data => data.forEach(element => {
+                    setdefault(element)
+                })
+            )
+            .catch(error => {
+            })
+
+    }, [])
+
+    useEffect(() => {
         getById(id)
             .then(
                 data => setTakeComments(data)
             )
             .catch(error => {
             })
-    }, [id, takeComments])
+    }, [id, post])
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+    const checkIcon = () => {
+        if (userDate.iconUser == undefined) {
+            return def.iconUser
+        }
+        return userDate.iconUser
     }
 
+    const sendDateOnServ = () => {
+
+        if (value !== null && value !== '' && id !== undefined) {
+            const postComment = {
+                "gameID": id,
+                "iconUser": checkIcon(),
+                "nickUser": userDate.login,
+                "commentUser": value,
+            }
+
+            add(postComment)
+                .then(
+                    data => setPost(data)
+                )
+            setValue('')
+        }
+    }
 
     const grapElements = () => {
-
-        return takeComments.map(elem => (
-            <div key={elem}>
+        return takeComments?.map(elem => (
+            <div key={`comment-item-${elem.id}`}>
+                <br />
+                {console.log(<img src={elem.iconUser} />)}
+                {/* <img src={elem.iconUser}  width="30" height="30" /> <span>{elem.nickUser}</span> */}
                 <img src={elem.iconUser} /> <span>{elem.nickUser}</span>
                 <div>{elem.commentUser}</div>
             </div>
         ))
-        // let elem = []
-
-        // for (let k = 0; k < array.length; k++) {
-        //     elem.push(
-        //         <div key={k}>
-        //             <img src={array[k].iconUser} /> <span>{array[k].nickUser}</span>
-        //             <div>{array[k].commentUser}</div>
-        //         </div>
-        //     )
-        //     console.log(array[k])
-        // }
-
-
     }
-
-
-
-
-
-    const sendDateOnServ = (id) => {
-
-        // console.log("id")
-        // console.log(id)
-        // console.log(idGame !== undefined)
-        // console.log(valueUser !== null)
-
-        // if (valueUser !== null && id !== undefined) {
-        //     const postComment = {
-        //         "gameID": id,
-        //         "iconUser": "",
-        //         "nickUser": "",
-        //         "commentUser": valueUser,
-        //     }
-
-        //     GetDate.addComment(postComment)
-        //         .then(
-        //             data => console.log(data)
-        //         )
-
-        //     console.log("valsss")
-        //     valueUser = null
-        // }
-    }
-
-    const handleChangeUser = (event) => {
-
-        setValue(event.target.value)
-
-    }
-
-
 
     return (<>
         <Box sx={{ width: "100 %", maxWidth: '100%' }}>
@@ -96,7 +87,7 @@ const Comments = ({ id }) => {
                 <Button
                     variant='contained'
                     type='button'
-                // onClick={() => sendDateOnServ(id)}
+                    onClick={() => sendDateOnServ()}
                 >
                     Send
                 </Button>

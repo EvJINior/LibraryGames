@@ -1,13 +1,11 @@
-import { Container, Card, Typography, CardActionArea, CardContent, CardActions, Button, Box, Stack } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import React, { useMemo } from 'react';
+import { Card, Typography, CardContent, Box } from '@mui/material';
+import React, { useMemo, useEffect } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { type } from '@testing-library/user-event/dist/type';
-import GamesApi from '../../api/gamesapi'
-import GetDate from '../../service/getdate'
 
-import Desc from './gameInfo/description'
+import { getByID } from '../../service/db'
+
+import Description from './gameInfo/description'
 import Images from './gameInfo/images'
 import Comments from './gameInfo/comments'
 
@@ -15,49 +13,16 @@ const GameInfo = ({ id }) => {
 
     const [value, setValue] = React.useState('1')
     const [agreementGameID, setAgreementGameID] = React.useState()
-    const [takeComments, setTakeComments] = React.useState([])
-    const [addComment, setAddComment] = React.useState()
-    // const takeComments = []
-    // let gettinID = id
-    // const [getDateServer, setGetDateServer] = React.useState()
-    // const [val, setVal] = React.useState(id)
 
-    // исправить
-    // if (gettinID === undefined) {
+    useEffect(() => {
 
-    //     gettinID = 1
-
-    // }
-
-
-
-    // console.log("начальный ID: ", id)
-    // console.log("начальный agreementGameID: ", agreementGameID)
-
-    React.useEffect(() => {
-        // if (agreementGameID == )
-        // console.log("начальный ID: ", gettinID)
-
-        const loading = () => {
-            getById(`${"?id="}${id}`).then(
-                data => data?.forEach(item => {
-                    setAgreementGameID(item)
-                })
-            )
-        }
-        loading()
+        getByID(`${"?id="}${id}`).then(
+            data => data?.forEach(item => {
+                setAgreementGameID(item)
+            })
+        )
 
     }, [id])
-
-
-    React.useEffect(() => {
-        GetDate.comments(`${"?gameID="}${id}`)
-            .then(
-                data => setTakeComments(data)
-            )
-            .catch(error => {
-            })
-    }, [id, takeComments])
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -66,9 +31,9 @@ const GameInfo = ({ id }) => {
     const currentTab = useMemo(() => {
         switch (value) {
             case '1':
-                return Desc(agreementGameID)
+                return <Description agreementGameID={agreementGameID} />
             case '2':
-                return (Images(agreementGameID))
+                return <Images id={id} />
             case '3':
                 return <Comments id={id} />
             default:
@@ -76,27 +41,35 @@ const GameInfo = ({ id }) => {
         }
     }, [value, agreementGameID])
 
+    const addOptions = useMemo(() => {
+        if (id !== undefined) {
+            return (
+                <Box sx={{ width: '100%', typography: 'body1' }}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                            <Tab label="Descriptions" value="1" />
+                            <Tab label="Images" value='2' />
+                            <Tab label="Comments" value='3' />
+                        </Tabs>
+                    </Box>
+                    {currentTab}
+                </Box>
+            )
+        }
+    }, [value, agreementGameID])
+
     return (
         <Card elevation={2} sx={{ width: '600px' }}>
+
             <CardContent >
-                <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                <Typography gutterBottom component="div" sx={{ flexGrow: 1 }}>
+                    {agreementGameID?.name || "Select a Game from the List"}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    {agreementGameID?.title}
                 </Typography>
             </CardContent>
-            <Box sx={{ width: '100%', typography: 'body1' }}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab label="Descriptions" value="1" />
-                        <Tab label="Images" value='2' />
-                        <Tab label="Comments" value='3' />
-                    </Tabs>
-                </Box>
-                {currentTab}
-            </Box>
+            {addOptions}
         </Card>
     )
 }

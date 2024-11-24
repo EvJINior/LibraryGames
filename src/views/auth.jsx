@@ -1,11 +1,8 @@
 import { Button, Card, CardActions, CardContent, CardHeader, Container, Dialog, DialogActions, DialogContent, DialogTitle, Stack, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import React, { useEffect, useCallback, useRef } from 'react';
-import GetDate from '../service/getdate'
+import { add } from '../../src/service/users.jsx'
 import { useNavigate } from 'react-router-dom';
-import { redirect } from 'react-router-dom';
-import Library from './library.jsx';
-
 
 const Authorization = () => {
     const [welcomDialogOpen, setWelcomDialogOpen] = React.useState(false)
@@ -29,15 +26,16 @@ const Authorization = () => {
             password: event.target['password'].value
         }
 
+        localStorage.setItem('user', JSON.stringify(newUser))
+
         setIsLoaing(true)
 
-        GetDate.addPost(newUser)
+        add(newUser)
             .then(
                 data => {
                     setLogin(data)
                     setIsLoaing(false)
                 }
-
             )
             .catch(error => {
                 setIsLoaing(false)

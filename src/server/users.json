@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "login": "admin",
+      "password": "admin",
+      "id": "dc43"
+    },
+    {
+      "login": "creator",
+      "password": "1",
+      "id": "19fb"
+    },
+    {
+      "id": "7f92",
+      "login": "creogeen",
+      "password": "1"
+    },
+    {
+      "id": "088a",
+      "login": "",
+      "password": "sdf"
+    },
+    {
+      "id": "0a2c",
+      "login": "NErti",
+      "password": "123"
+    },
+    {
+      "id": "3889",
+      "login": "Brawl",
+      "password": "123"
+    },
+    {
+      "id": "55da",
+      "login": "Jem",
+      "password": "rej"
+    },
+    {
+      "id": "c7d7",
+      "login": "creator",
+      "password": "1"
+    },
+    {
+      "id": "7a54",
+      "login": "Djeka",
+      "password": "789"
+    },
+    {
+      "id": "c323",
+      "login": "creator",
+      "password": "sad"
+    },
+    {
+      "id": "98d1",
+      "login": "Djeka",
+      "password": "qwer"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Description = (prop) => {
+const Description = ({ agreementGameID }) => {
     return (
         <div>
-            {prop?.descriptions}
+            {agreementGameID?.descriptions}
         </div>
     )
 }

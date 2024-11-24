@@ -1,8 +1,25 @@
-import GamesApi from '../api/gamesapi'
+import { getList, getID } from '../api/db'
 
-const getById = id => {
-    return GamesApi.getComments(id)
+const getByList = () => {
+    return getList()
         .then(data => {
+            // if (data.code !== 200) {
+            //     throw Error(data.errMsg)
+            // }
+
+            return Promise.resolve(data)
+        })
+
+        .catch(error => {
+            return Promise.reject(error)
+        })
+
+}
+
+const getByID = id => {
+    return getID(id)
+        .then(data => {
+
             return Promise.resolve(data)
         })
 
@@ -11,16 +28,4 @@ const getById = id => {
         })
 }
 
-const add = obj => {
-    return GamesApi.addCommentUser(obj)
-        .then(data => {
-            return Promise.resolve(data)
-        })
-
-        .catch(error => {
-            return Promise.reject(error)
-        })
-}
-
-export { getById, add }
-// TODO move comments from GameApi to separate Api file
+export { getByList, getByID }
