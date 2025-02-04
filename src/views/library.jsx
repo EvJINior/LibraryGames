@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
-import { AppBar, IconButton, Toolbar } from '@mui/material';
-import ListOfGames from './libraryGames/listGames';
-import GamesComponents from './libraryGames/gamesComponents';
-import { Container, Card, Typography, CardActionArea, CardContent, CardActions, Button, Box } from '@mui/material';
+import React, { useState } from 'react'
+import GamesList from './libraryGames'
+import GameDetails from './libraryGames/GameDetails'
+import { Box, Card, Container, Divider, Stack } from '@mui/material'
 
 const Library = () => {
-    const [id, setID] = useState()
+	const [gameID, setGameID] = useState(0)
 
-    const handleChange = (id) => {
-        setID(id)
-    }
-
-    return (<>
-        {/* <AppBar position="static">
-            <Toolbar>
-                <Typography gutterBottom component="div" sx={{ flexGrow: 1 }}>
-                    Photos
-                </Typography>
-                <IconButton
-                    // onClick={handleMenu}
-                    color="inherit"
-                >
-                </IconButton>
-            </Toolbar>
-        </AppBar> */}
-        <Container sx={{ display: 'flex' }}>
-
-            <ListOfGames onChange={handleChange} />
-            <GamesComponents id={id} />
-        </Container>
-    </>
-    )
+	return (
+		<>
+			<Container
+				maxWidth="xl"
+				sx={{
+					maxHeight: '100vh',
+					display: 'flex',
+				}}
+			>
+				<Card elevation={3} sx={{ borderRadius: 0, width: '100%' }}>
+					<Stack direction="row" divider={<Divider orientation='vertical' sx={{ height: '100vh' }} />}>
+						<Box sx={{ minWidth: 400 }}>
+							<GamesList onChange={setGameID} />
+						</Box>
+						<Box sx={{ flexGrow: 1 }}>
+							<GameDetails id={gameID} />
+						</Box>
+					</Stack>
+				</Card>
+			</Container>
+		</>
+	)
 }
 
 export default Library

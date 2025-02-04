@@ -34,4 +34,3 @@ const defaultGetID = id => {
 }
 
 export { getById, add, defaultGetID }
-// TODO move comments from GameApi to separate Api file

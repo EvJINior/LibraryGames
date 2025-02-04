@@ -56,5 +56,132 @@
       ],
       "comments": "commTHE FINALS"
     }
+  ],
+  "imagesGames": [
+    {
+      "gameID": "1",
+      "key": "1ajk",
+      "images": "https://s5o.ru/storage/simple/cyber/edt/8e/f7/cd/3b/cybere30e6eea77d.jpg"
+    },
+    {
+      "gameID": "1",
+      "key": "1b5h",
+      "images": "https://mmo13.ru/download/content/201501/image_54afebbb3ddf89.82298300.jpg"
+    },
+    {
+      "gameID": "1",
+      "key": "1dh7",
+      "images": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/570/ss_b33a65678dc71cc98df4890e22a89601ee56a918.1920x1080.jpg?t=1731544174"
+    },
+    {
+      "gameID": "1",
+      "key": "1e2g",
+      "images": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/570/ss_f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.1920x1080.jpg?t=1731544174"
+    },
+    {
+      "gameID": "1",
+      "key": "1f2b",
+      "images": "https://upload.wikimedia.org/wikipedia/ru/thumb/8/8e/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Dota_2.jpg/266px-%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Dota_2.jpg"
+    },
+    {
+      "gameID": "1",
+      "key": "1gn3",
+      "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO0Jy4xtPBqDCZDrl8XuZYhFtYvNIGoSwHGw&s"
+    },
+    {
+      "gameID": "1",
+      "key": "1h4x",
+      "images": "https://s-cdn.sportbox.ru/images/styles/1200-auto/fp_fotos/5f/9c/314b701299823854aa17ba101fd565165c922333bd768808364243.jpg"
+    },
+    {
+      "gameID": "1",
+      "key": "1i89",
+      "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsuxKb5QfwbVqipO0I463YijH-FWwbRP8irw&s"
+    },
+    {
+      "gameID": "2",
+      "key": "2ajk",
+      "images": "https://3dnews.ru/assets/external/illustrations/2023/12/23/1097905/sm.THE_FINALS_review_9.800.jpg"
+    },
+    {
+      "gameID": "2",
+      "key": "2b5h",
+      "images": "https://media.kg-portal.ru/games/f/finals/posters/finals_1.jpg"
+    },
+    {
+      "gameID": "2",
+      "key": "2dh7",
+      "images": "https://ss.sport-express.ru/userfiles/materials/197/1973937/full.jpg"
+    },
+    {
+      "gameID": "2",
+      "key": "2e2g",
+      "images": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2073850/ss_e5f6f417c0ec5fc47da4daf3441b11d70fe2d962.1920x1080.jpg?t=1731340245"
+    },
+    {
+      "gameID": "2",
+      "key": "2f2b",
+      "images": "https://opis-cdn.tinkoffjournal.ru/mercury/the-finals-review-01.fyebilb0aeal..jpg"
+    },
+    {
+      "gameID": "2",
+      "key": "2gn3",
+      "images": "https://3dnews.ru/assets/external/illustrations/2023/11/02/1095357/sm.The_Finals_preview_4.800.jpg"
+    },
+    {
+      "gameID": "2",
+      "key": "2h4x",
+      "images": "https://3dnews.ru/assets/external/illustrations/2023/12/23/1097905/THE_FINALS_review_11.jpg"
+    },
+    {
+      "gameID": "2",
+      "key": "2i89",
+      "images": "https://i.playground.ru/p/uTjLjxtfHtJhRroU3QDc6w.png?760xauto"
+    },
+    {
+      "gameID": "2",
+      "key": "2h6q",
+      "images": "https://gogames.pro/assets/images/products/1579/the-finals-2.jpg"
+    },
+    {
+      "gameID": "2",
+      "key": "2iu9",
+      "images": "https://opis-cdn.tinkoffjournal.ru/mercury/the-finals-review-04.pggw9e207wqq..jpg"
+    },
+    {
+      "gameID": "3",
+      "key": "3dh7",
+      "images": "https://files.vgtimes.ru/games_header_images/45540/rocket-league-treyler-dopolneniya-the-dc-super-heroes_video_7838.jpg"
+    },
+    {
+      "gameID": "3",
+      "key": "3e2g",
+      "images": "https://files.bo3.gg/uploads/image/60563/image/webp-0291252228123b734992250b390777ee.webp"
+    },
+    {
+      "gameID": "3",
+      "key": "3f2b",
+      "images": "https://i.rutab.net/upload/2024/03/news/d122582b49cedd3ca5d9608a40572caa.webp"
+    },
+    {
+      "gameID": "3",
+      "key": "3gn3",
+      "images": "https://cdn-www.bluestacks.com/bs-images/gametiles_com.mattel.hwrocketleague15.jpg"
+    },
+    {
+      "gameID": "3",
+      "key": "3h4x",
+      "images": "https://itzine.ru/wp-content/uploads/2021/12/RLS_wow.f1cb27a519bdb5b6ed34049a5b86e3172.jpg"
+    },
+    {
+      "gameID": "3",
+      "key": "3i89",
+      "images": "https://cdn6.aptoide.com/imgs/a/a/d/aadd288e8e77542d9a245fd52b3e9048_screen.jpg"
+    },
+    {
+      "gameID": "3",
+      "key": "3h6q",
+      "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppgitRgnkfHCYcDWGGSZU2tWVsvSKBKGwsw&s"
+    }
   ]
 }

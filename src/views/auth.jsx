@@ -5,14 +5,14 @@ import { add } from '../../src/service/users.jsx'
 import { useNavigate } from 'react-router-dom';
 
 const Authorization = () => {
-    const [welcomDialogOpen, setWelcomDialogOpen] = React.useState(false)
+    // const [welcomDialogOpen, setWelcomDialogOpen] = React.useState(false)
     const [isLoaing, setIsLoaing] = React.useState(false)
     const [login, setLogin] = React.useState()
     const navigate = useNavigate()
     // const [accDetails, setAccDetails] = React.useState('admin')
 
-    const handleOnDialogOpen = useCallback(() => setWelcomDialogOpen(true), [])
-    const handleOnDialogClose = useCallback(() => setWelcomDialogOpen(false), [])
+    // const handleOnDialogOpen = useCallback(() => setWelcomDialogOpen(true), [])
+    // const handleOnDialogClose = useCallback(() => setWelcomDialogOpen(false), [])
 
 
 
@@ -98,20 +98,20 @@ const Authorization = () => {
                     </Card>
                 </form>
             </Container>
-            <Dialog open={welcomDialogOpen}>
+            {/* <Dialog open={welcomDialogOpen}>
                 <DialogTitle>
                     Login success
                 </DialogTitle>
                 <DialogContent>
                     <Typography variant='h3'>
                         Welcom
-                        {/* Welcom, {login} */}
+                     //   Welcom, {login}
                     </Typography>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleOnDialogClose}>Close</Button>
                 </DialogActions>
-            </Dialog>
+            </Dialog> */}
         </>
     )
 }

@@ -49,32 +49,11 @@
       "commentUser": "игра бомба. играю редко, не знаю почему, не могу играть в нее часто и долго. но однозначно она стоит внимания. разрабы вроде как стараются, развивают. в пати особенно кайфово катать"
     },
     {
-      "id": "q4rd",
-      "gameID": 3,
-      "iconUser": "https://avatars.fastly.steamstatic.com/cd40016e3267739afc1e6f3a2b75c3013036509e.jpg",
-      "nickUser": "jarviz",
-      "commentUser": "Лучшая игра человечества, после 1000 часов возможно начну попадать по мячику."
-    },
-    {
-      "id": "t7di",
-      "gameID": 3,
-      "iconUser": "https://avatars.fastly.steamstatic.com/91487a42d7fe47fd07ef7d3d46f64f37c48220da.jpg",
-      "nickUser": "krowrise",
-      "commentUser": "Каждый раз, при знакомстве с кем-то, когда узнают что в это игре 3к часов, сразу блокируют. А из минусов ничего не могу добавть, так что всем советую!"
-    },
-    {
       "id": "c69b",
       "gameID": 2,
       "iconUser": "https://img.icons8.com/?size=30&id=77883&format=png",
       "nickUser": "creator",
       "commentUser": "Best"
-    },
-    {
-      "id": "cb9b",
-      "gameID": 3,
-      "iconUser": "https://img.icons8.com/?size=30&id=77883&format=png",
-      "nickUser": "creator",
-      "commentUser": "Well Played"
     },
     {
       "id": "62e7",
@@ -83,11 +62,25 @@
       "nickUser": "creator"
     },
     {
-      "id": "71dd",
-      "gameID": 3,
-      "iconUser": "https://img.icons8.com/?size=30&id=77883&format=png",
+      "id": "41de",
+      "gameID": "1",
+      "iconUser": "",
+      "nickUser": "123",
+      "commentUser": "asd"
+    },
+    {
+      "id": "ce1a",
+      "gameID": "1",
+      "iconUser": "",
+      "nickUser": "123",
+      "commentUser": "ASdasdasdasdasdasdasdasasd"
+    },
+    {
+      "id": "c800",
+      "gameID": "2",
+      "iconUser": "",
       "nickUser": "creator",
-      "commentUser": "Это просто бомба)\nРекомендую"
+      "commentUser": "Hello"
     }
   ]
 }
