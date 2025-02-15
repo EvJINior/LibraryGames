@@ -11,11 +11,11 @@ const GameListItem = ({ game, onChange }) => {
 		<ListItem sx={{ textTransform: 'uppercase' }} value={game.id} disablePadding>
 			<ListItemButton onClick={handleOnChange}>
 				<ListItemIcon>
-					<img 
-						src={game.icon} 
+					<img
+						src={game.icon}
 						width={40}
 						height={40}
-						alt={`${game.name} icon`} 
+						alt={`${game.name} icon`}
 					/>
 				</ListItemIcon>
 				<ListItemText primary={game.name} />

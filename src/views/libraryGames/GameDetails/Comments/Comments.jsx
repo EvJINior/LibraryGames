@@ -73,7 +73,7 @@ const Comments = ({ id }) => {
 	}, [items, isLoading])
 
 	return (
-		<Stack divider={<Divider />} gap={2} sx={{ maxHeight: '75vmin', overflow: 'auto' }}>
+		<Stack divider={<Divider />} gap={2} sx={{ height: '100%', overflow: 'auto' }}>
 			<Box sx={{ width: '100%', maxWidth: '100%' }}>
 				<Stack direction="row">
 					<TextField

@@ -1,13 +1,17 @@
-import React, { useMemo } from 'react'
-import { Box, List } from '@mui/material'
+import React, { useState, useMemo, useEffect } from 'react'
+import { Box, List, TextField, Stack } from '@mui/material'
 import { getByList } from '../../service/db'
 import GameListItem from './GameListItem'
 import Alert from '@mui/material/Alert';
 import Loading from './loading'
 
-const GamesList = ({ onChange }) => {
-	const [isLoading, setIsLoading] = React.useState(false)
-	const [games, setGames] = React.useState([])
+import SearchString from './SearchString'
+import CollectionGamesNavigate from './CollectionGames/CollectionGamesNavigate'
+
+const GamesList = ({ onChange, setCollectionChange }) => {
+	const [isLoading, setIsLoading] = useState(false)
+	const [games, setGames] = useState([])
+	const [sString, setSearchString] = useState(null)
 
 	const findGamesRequest = async () => {
 		setIsLoading(true)
@@ -23,21 +27,28 @@ const GamesList = ({ onChange }) => {
 		// }, 2000);
 	}
 
-	React.useEffect(() => {
+	useEffect(() => {
 		findGamesRequest()
 	}, [])
 
 	const content = useMemo(() => {
 
 		if (isLoading) {
-			// TODO prettify with css
 			return <Loading />
 		}
 
 		if (!games.length) {
-			// TODO prettify with css
 			return <Alert severity="info">No games found</Alert>
+		}
 
+		if (sString != null) {
+			return (
+				<GameListItem
+					key={sString.id}
+					game={sString}
+					onChange={onChange}
+				/>
+			)
 		}
 
 		return (
@@ -51,11 +62,17 @@ const GamesList = ({ onChange }) => {
 				))}
 			</List>
 		)
-	}, [games, isLoading, onChange])
+	}, [games, isLoading, onChange, sString])
 
 	return (
 		<>
 			<Box>
+				<Stack sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+
+					<SearchString games={games} setSearchString={setSearchString} sString={sString} />
+					<CollectionGamesNavigate setCollectionChange={setCollectionChange} />
+				</Stack>
+
 				{content}
 			</Box>
 		</>
@@ -63,3 +80,4 @@ const GamesList = ({ onChange }) => {
 }
 
 export default GamesList
+

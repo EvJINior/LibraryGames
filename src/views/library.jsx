@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import GamesList from './libraryGames'
 import GameDetails from './libraryGames/GameDetails'
+import CollectionGamesContent from './libraryGames/CollectionGames/CollectionGamesContent'
 import { Box, Card, Container, Divider, Stack } from '@mui/material'
 
 const Library = () => {
@@ -15,13 +16,14 @@ const Library = () => {
 					display: 'flex',
 				}}
 			>
+				{/* <Card elevation={3} sx={{ borderRadius: 0, width: '100%', bgcolor: 'text.disabled', color: 'background.paper' }}> */}
 				<Card elevation={3} sx={{ borderRadius: 0, width: '100%' }}>
 					<Stack direction="row" divider={<Divider orientation='vertical' sx={{ height: '100vh' }} />}>
 						<Box sx={{ minWidth: 400 }}>
-							<GamesList onChange={setGameID} />
+							<GamesList onChange={setGameID} setCollectionChange={setGameID} />
 						</Box>
 						<Box sx={{ flexGrow: 1 }}>
-							<GameDetails id={gameID} />
+							{(gameID === -1) ? <CollectionGamesContent setGameID={setGameID} /> : <GameDetails id={gameID} />}
 						</Box>
 					</Stack>
 				</Card>

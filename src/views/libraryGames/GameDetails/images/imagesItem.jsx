@@ -1,11 +1,6 @@
-import { Avatar, Box, Stack, Typography, Fade, Modal, Button, Backdrop } from '@mui/material'
-import React, { useMemo, useCallback, useEffect } from 'react'
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-
-import { ImageList, ImageListItem } from '@mui/material';
-
-
+import { Box, Modal, Button } from '@mui/material'
+import React, { useCallback } from 'react'
+import { ImageListItem } from '@mui/material';
 
 const ImagesItem = ({ images }) => {
 
@@ -22,29 +17,16 @@ const ImagesItem = ({ images }) => {
         border: '6px solid #000',
     };
 
-    function nextImage() {
-
-    }
-
-    function OpenScreenModal() {
+    const OpenScreenModal = () => {
         return (
             <div>
                 <Modal keepMounted open={open} onClose={handleClose}>
                     <Box sx={style}>
                         <img src={images.images} width="800" height="600" />
-                        <div sx={{ justifyContent: "space-between" }}>
-                            <Button >
-                                <KeyboardArrowLeftIcon />
-                            </Button>
-                            <Button onClick={nextImage}>
-                                <KeyboardArrowRightIcon />
-                            </Button>
-                        </div>
                     </Box>
-
                 </Modal>
             </div >
-        );
+        )
     }
 
     return (<>

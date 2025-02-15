@@ -1,13 +1,11 @@
-import { Card, Typography, CardContent, Box, Stack } from '@mui/material'
+import { Typography, Box, Stack } from '@mui/material'
 import React, { useMemo, useEffect, useState } from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Alert from '@mui/material/Alert';
-
 import { getByID } from '../../../service/db'
-
 import Description from './description'
-import Images from './images/images'
+import Images from './Images'
 import Comments from './Comments'
 
 const TABS = {
@@ -17,11 +15,12 @@ const TABS = {
 }
 
 const GameDetails = ({ id = 0 }) => {
+
 	const [tab, setTab] = useState(TABS.DESCRIPTION)
 	const [agreementGameID, setAgreementGameID] = React.useState()
 
 	useEffect(() => {
-		getByID(`${'?id='}${id}`).then((data) =>
+		getByID(id).then((data) =>
 			data?.forEach((item) => {
 				setAgreementGameID(item)
 			})
@@ -46,6 +45,7 @@ const GameDetails = ({ id = 0 }) => {
 	}, [tab, agreementGameID, id])
 
 	const content = useMemo(() => {
+
 		if (id === 0) {
 			return <Alert severity="info">Select a Game from the List</Alert>
 		}
