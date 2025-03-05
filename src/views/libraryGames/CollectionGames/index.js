@@ -1,3 +1,3 @@
-import CollectionGames from "../../libraryGames"
+import CollectionGames from "./CollectionGamesNavigate"
 
 export default CollectionGames

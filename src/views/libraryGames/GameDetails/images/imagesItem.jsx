@@ -14,7 +14,7 @@ const ImagesItem = ({ images }) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         bgcolor: 'black',
-        border: '6px solid #000',
+        border: '6px solid #000'
     };
 
     const OpenScreenModal = () => {

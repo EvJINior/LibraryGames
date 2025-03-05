@@ -18,6 +18,7 @@ const CommentItem = ({ comment }) => {
 						maxWidth: 'fit-content',
 						padding: 1,
 						borderRadius: 1,
+						color: 'black'
 					}}
 				>
 					<ThumbUp />
@@ -38,6 +39,7 @@ const CommentItem = ({ comment }) => {
 					maxWidth: 'fit-content',
 					padding: 1,
 					borderRadius: 1,
+					color: 'black',
 				}}
 			>
 				<ThumbDown />
@@ -49,12 +51,12 @@ const CommentItem = ({ comment }) => {
 	}, [])
 
 	return (
-		<Stack direction={'row'} gap={1} px={2}>
+		<Stack direction={'row'} gap={1} px={2} >
 			<Stack direction={'row'} gap={1} sx={{ minWidth: 200 }}>
 				<Avatar
 					alt={comment.nickUser}
 					src={comment.iconUser}
-					sx={{ width: 46, height: 46, borderRadius: 2 }}
+					sx={{ width: 46, height: 40, borderRadius: 2 }}
 				>
 					<AccessibleForwardIcon />
 				</Avatar>

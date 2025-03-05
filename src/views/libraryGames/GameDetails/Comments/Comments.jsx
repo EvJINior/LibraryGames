@@ -72,10 +72,10 @@ const Comments = ({ id }) => {
 		))
 	}, [items, isLoading])
 
-	return (
-		<Stack divider={<Divider />} gap={2} sx={{ height: '100%', overflow: 'auto' }}>
+	return (<>
+		<Stack divider={<Divider />} gap={1} sx={{ height: '100vh' }}>
 			<Box sx={{ width: '100%', maxWidth: '100%' }}>
-				<Stack direction="row">
+				<Stack direction="row" >
 					<TextField
 						fullWidth
 						label="Feedback"
@@ -95,8 +95,12 @@ const Comments = ({ id }) => {
 					</Button>
 				</Stack>
 			</Box >
-			{content}
+			<Stack gap={2} sx={{ height: '100%', overflow: 'auto' }}>
+				{/* <Stack gap={2} > */}
+				{content}
+			</Stack>
 		</Stack>
+	</>
 	)
 }
 

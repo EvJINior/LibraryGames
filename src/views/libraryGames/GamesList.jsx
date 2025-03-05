@@ -1,14 +1,16 @@
-import React, { useState, useMemo, useEffect } from 'react'
-import { Box, List, TextField, Stack } from '@mui/material'
+import React, { useState, useMemo, useEffect, useCallback } from 'react'
+import { Box, List, TextField, Stack, Button } from '@mui/material'
 import { getByList } from '../../service/db'
 import GameListItem from './GameListItem'
 import Alert from '@mui/material/Alert';
 import Loading from './loading'
 
 import SearchString from './SearchString'
-import CollectionGamesNavigate from './CollectionGames/CollectionGamesNavigate'
 
-const GamesList = ({ onChange, setCollectionChange }) => {
+import { ViewModule } from '@mui/icons-material';
+import { common } from '@mui/material/colors';
+
+const GamesList = ({ onChange, gameID }) => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [games, setGames] = useState([])
 	const [sString, setSearchString] = useState(null)
@@ -31,6 +33,10 @@ const GamesList = ({ onChange, setCollectionChange }) => {
 		findGamesRequest()
 	}, [])
 
+	const handleOnOpenCards = useCallback(() => {
+		onChange(-1)
+	}, [onChange])
+
 	const content = useMemo(() => {
 
 		if (isLoading) {
@@ -47,33 +53,74 @@ const GamesList = ({ onChange, setCollectionChange }) => {
 					key={sString.id}
 					game={sString}
 					onChange={onChange}
+					gameID={gameID}
 				/>
 			)
 		}
 
 		return (
-			<List>
+			<List sx={{
+				height: '10%',
+			}}>
 				{(games || []).map((game) => (
 					<GameListItem
 						key={game.id}
 						game={game}
 						onChange={onChange}
+						gameID={gameID}
 					/>
 				))}
 			</List>
 		)
-	}, [games, isLoading, onChange, sString])
+	}, [games, isLoading, onChange, sString, gameID])
 
 	return (
 		<>
-			<Box>
-				<Stack sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+			<Box sx={{
+				width: '100%',
+				// height: '100%',
+				// overflow: 'auto'
+			}}>
+				<Stack sx={{
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'space-between',
+					height: '100%'
+				}}>
 
-					<SearchString games={games} setSearchString={setSearchString} sString={sString} />
-					<CollectionGamesNavigate setCollectionChange={setCollectionChange} />
+					<SearchString
+						games={games}
+						setSearchString={setSearchString}
+						sString={sString}
+						// sx={{ width: '100vw' }}
+						sx={{ width: '100vw', height: '10%' }}
+					/>
+
+					<Button
+						onClick={handleOnOpenCards}
+						sx={{
+							// height: '6%',
+							width: '10%',
+							backgroundColor: gameID === -1 ? '#314660' : undefined,
+							'&:hover': {
+								backgroundColor: '#314660'
+							},
+						}}
+						variant='outlined'
+					>
+
+						<ViewModule
+							color="primary"
+						/>
+
+					</Button>
 				</Stack>
-
-				{content}
+				<Stack sx={{
+					height: '100%',
+					overflow: 'auto'
+				}}>
+					{content}
+				</Stack>
 			</Box>
 		</>
 	)

@@ -34,8 +34,8 @@ const Images = ({ id }) => {
 			return <Alert severity="info">No images found</Alert>
 		}
 		return (
-			<Stack sx={{ height: 600 }}>
-				<ImageList variant="masonry" cols={3} gap={4}>
+			<Stack sx={{ overflow: 'auto' }}>
+				<ImageList variant="masonry" cols={3} gap={4} >
 					{imagesGame?.map((image) => (
 						< ImagesItem key={image.id} images={image} />
 					))}

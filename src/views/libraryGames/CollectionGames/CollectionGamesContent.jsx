@@ -28,7 +28,6 @@ const CollectionGamesContent = ({ setGameID }) => {
     const content = useMemo(() => {
 
         if (isLoading) {
-            console.log("load")
             return <Loading />
         }
 
@@ -37,17 +36,34 @@ const CollectionGamesContent = ({ setGameID }) => {
         }
 
         return (
-            <Grid container spacing={2}>
+            <Grid container spacing={4} >
                 {games.map(item => (
                     < Grid
                         item
                         lg={2}
                         key={item.id}
                         onClick={handleOnChange}
+                        sx={{ padding: '20' }}
+                    // marginTop={1}
                     >
-                        <Button color="secondary" >
-                            <img src={`${item.imageTitle}`} width={110} height={150} id={item.id} />
-                        </Button>
+                        <div >
+                            <Button sx={{
+                                padding: '0',
+                                boxShadow: '0px 4px 37px -1px rgba(11, 12, 13, 0.71)',
+                                transition: '2s',
+                                '&:hover': {
+                                    boxShadow: '0px 4px 37px -1px rgb(255, 255, 255)',
+                                    transition: '1s',
+                                    transform: 'scale(1.05)'
+                                },
+                                '&:active': {
+                                    boxShadow: '0px 4px 37px -1px rgba(214, 221, 227, 0.5)',
+                                    color: 'rgba(190, 193, 203, 0.78)',
+                                }
+                            }}>
+                                <img src={`${item.imageTitle}`} width={120} height={170} id={item.id} />
+                            </Button >
+                        </div>
                     </Grid>
                 ))}
             </Grid >
@@ -60,3 +76,9 @@ const CollectionGamesContent = ({ setGameID }) => {
 }
 
 export default CollectionGamesContent
+
+
+// '&:hover': {
+//       backgroundColor: '#fff',
+//       color: '#3c52b2',
+//   },
