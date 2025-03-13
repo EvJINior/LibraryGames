@@ -1,4 +1,4 @@
-import { Avatar, Box, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Container, Stack, Typography } from '@mui/material'
 import React, { useMemo } from 'react'
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward'
 import { ThumbDown, ThumbUp } from '@mui/icons-material'
@@ -52,7 +52,7 @@ const CommentItem = ({ comment }) => {
 
 	return (
 		<Stack direction={'row'} gap={1} px={2} >
-			<Stack direction={'row'} gap={1} sx={{ minWidth: 200 }}>
+			<Box gap={1} sx={{ display: 'flex', minWidth: 200, }}>
 				<Avatar
 					alt={comment.nickUser}
 					src={comment.iconUser}
@@ -60,15 +60,17 @@ const CommentItem = ({ comment }) => {
 				>
 					<AccessibleForwardIcon />
 				</Avatar>
-				<Typography>{comment.nickUser}</Typography>
-			</Stack>
-			<Stack sx={{ flexGrow: 1 }}>
+				<Typography>
+					{comment.nickUser}
+				</Typography>
+			</Box>
+			<Box sx={{ flexGrow: 1 }}>
 				{reaction}
 				<Typography>
 					{comment.commentUser}
 				</Typography>
-			</Stack>
-		</Stack>
+			</Box>
+		</Stack >
 	)
 }
 

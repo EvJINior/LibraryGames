@@ -1,4 +1,4 @@
-import { TextField, Divider, Box, Stack, Button } from '@mui/material'
+import { TextField, Divider, Card, Stack, Button, Container, Box } from '@mui/material'
 import React, { useState, useMemo, useEffect, useCallback } from 'react'
 import { getById, add } from '../../../../service/comments'
 import CommentItem from './CommentItem'
@@ -64,43 +64,66 @@ const Comments = ({ id }) => {
 		}
 
 		if (!items.length) {
-			return <Alert severity="info">No comments found</Alert>
+			return <Alert sx={{ margin: '10px' }}
+				severity="info">No comments found</Alert>
 		}
 
-		return items.map((item) => (
-			<CommentItem key={item.id} comment={item} />
-		))
+		return (
+			items.map((item) => (
+				<CommentItem key={item.id} comment={item} />
+			))
+		)
 	}, [items, isLoading])
 
-	return (<>
-		<Stack divider={<Divider />} gap={1} sx={{ height: '100vh' }}>
-			<Box sx={{ width: '100%', maxWidth: '100%' }}>
-				<Stack direction="row" >
-					<TextField
-						fullWidth
-						label="Feedback"
-						id="outlined-textarea"
-						multiline
-						disabled={isLoading}
-						value={value}
-						onChange={handleChangeUser}
-					/>
-					<Button
-						variant="contained"
-						type="button"
-						onClick={handleOnSave}
-						disabled={isLoading}
-					>
-						Send
-					</Button>
-				</Stack>
-			</Box >
-			<Stack gap={2} sx={{ height: '100%', overflow: 'auto' }}>
-				{/* <Stack gap={2} > */}
+	return (
+		// {/* <Stack > */}
+		// <Box sx={{ backgroundColor: 'inherit', color: 'inherit' }}>
+
+		<Box gap={0.5} sx={{ display: 'flex', flexDirection: 'column', overflow: 'auto', }}>
+			<Stack sx={{ display: 'flex', flexDirection: 'row' }}>
+				<TextField
+					fullWidth
+					label="Feedback"
+					id="outlined-textarea"
+					multiline
+					disabled={isLoading}
+					value={value}
+					onChange={handleChangeUser}
+				/>
+				<Button
+					variant="contained"
+					type="button"
+					onClick={handleOnSave}
+					disabled={isLoading}
+				>
+					Send
+				</Button>
+			</Stack>
+			<Stack gap={2} sx={{
+				overflow: 'auto',
+
+				'&::-webkit-scrollbar': {
+					width: '10px'
+				},
+
+				'&::-webkit-scrollbar-track': {
+					'-webkit-box-shadow': '5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset',
+					backgroundColor: ' #f9f9fd'
+				},
+
+				'&::-webkit-scrollbar-thumb': {
+					backgroundColor: '  #356184',
+					backgroundImage: '-webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .25)), color-stop(.5, transparent), to(transparent))'
+				},
+			}}>
 				{content}
 			</Stack>
-		</Stack>
-	</>
+		</Box>
+
+		// </Box>
+		// {/* </Box> */}
+
+		// {/* </Stack> */}
 	)
 }
 

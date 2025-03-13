@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import { Stack } from '@mui/material';
+
 // import PropTypes from 'prop-types';
 // import Typography from '@mui/material/Typography';
 
@@ -10,9 +11,10 @@ import Box from '@mui/material/Box';
 
 export default function CircularIndeterminate() {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', paddingTop: '4vh' }}>
+
+    <Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '4vh' }}>
       <CircularProgress />
-    </Box>
+    </Stack>
   );
 }
 

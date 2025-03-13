@@ -40,11 +40,19 @@ const GamesList = ({ onChange, gameID }) => {
 	const content = useMemo(() => {
 
 		if (isLoading) {
-			return <Loading />
+			return (
+				<Loading />
+			)
 		}
 
 		if (!games.length) {
-			return <Alert severity="info">No games found</Alert>
+			return (
+				// <Box padding={1}>
+				<Alert severity="info" sx={{ margin: '10px' }}>
+					No games found
+				</Alert>
+				// </Box >
+			)
 		}
 
 		if (sString != null) {
@@ -59,47 +67,46 @@ const GamesList = ({ onChange, gameID }) => {
 		}
 
 		return (
-			<List sx={{
-				height: '10%',
-			}}>
-				{(games || []).map((game) => (
-					<GameListItem
-						key={game.id}
-						game={game}
-						onChange={onChange}
-						gameID={gameID}
-					/>
-				))}
-			</List>
+			<Stack sx={{ overflow: 'auto' }}>
+				<List >
+					{(games || []).map((game) => (
+						<GameListItem
+							key={game.id}
+							game={game}
+							onChange={onChange}
+							gameID={gameID}
+						/>
+					))}
+				</List>
+			</Stack>
 		)
 	}, [games, isLoading, onChange, sString, gameID])
 
 	return (
 		<>
-			<Box sx={{
-				width: '100%',
-				// height: '100%',
-				// overflow: 'auto'
+			<Box gap={0.5} sx={{
+				width: '30%',
+				backgroundColor: '#081016',
+				color: 'white',
+				display: 'flex',
+				flexDirection: 'column',
+				overflow: 'auto'
 			}}>
 				<Stack sx={{
 					display: 'flex',
 					flexDirection: 'row',
 					justifyContent: 'space-between',
-					height: '100%'
 				}}>
 
 					<SearchString
 						games={games}
 						setSearchString={setSearchString}
 						sString={sString}
-						// sx={{ width: '100vw' }}
-						sx={{ width: '100vw', height: '10%' }}
 					/>
 
 					<Button
 						onClick={handleOnOpenCards}
 						sx={{
-							// height: '6%',
 							width: '10%',
 							backgroundColor: gameID === -1 ? '#314660' : undefined,
 							'&:hover': {
@@ -108,19 +115,13 @@ const GamesList = ({ onChange, gameID }) => {
 						}}
 						variant='outlined'
 					>
-
 						<ViewModule
 							color="primary"
 						/>
 
 					</Button>
 				</Stack>
-				<Stack sx={{
-					height: '100%',
-					overflow: 'auto'
-				}}>
-					{content}
-				</Stack>
+				{content}
 			</Box>
 		</>
 	)

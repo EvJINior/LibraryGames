@@ -1,5 +1,5 @@
 import { Container } from '@mui/material';
-import Auth from './views/auth';
+import Auth from './views/Auth';
 import Library from './views/Library';
 import Index from './index'
 import { Routes, Route } from 'react-router-dom';
@@ -11,7 +11,6 @@ function App() {
         <Route path='/' element={<Auth />} />
         <Route path='library' element={<Library />} />
       </Routes>
-
     </>
   )
 }

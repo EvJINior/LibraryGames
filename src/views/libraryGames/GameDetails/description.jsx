@@ -4,7 +4,7 @@ import { Stack, Typography } from '@mui/material'
 const Description = ({ agreementGameID }) => {
 
     return (
-        <Stack sx={{ color: '#b5b5b5' }}>
+        <Stack padding={2} sx={{ color: '#b5b5b5', overflow: 'auto' }}>
             <Typography>
                 {agreementGameID?.descriptions}
             </Typography>

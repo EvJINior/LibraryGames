@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, CardHeader, Container, Dialog, DialogActions, DialogContent, DialogTitle, Stack, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import React, { useEffect, useCallback, useRef } from 'react';
-import { add } from '../../src/service/users.jsx'
+import { add } from '../service/users.jsx'
 import { useNavigate } from 'react-router-dom';
 
 const Authorization = () => {
@@ -44,23 +44,6 @@ const Authorization = () => {
         navigate('library')
     }
 
-    // useEffect(() => {
-    //     // if (agreementGameID == )
-    //     // console.log("начальный ID: ", gettinID)
-
-    //     const loading = () => {
-
-    //         GetDate.getUsers(`${"?login="}${log.current}`).then(
-    //             data => setAccDetails(data)
-    //         )
-    //     }
-
-    //     loading()
-
-
-
-    // }, [log.current])
-
     return (
         <>
             <Container maxWidth='sm'>
@@ -98,20 +81,7 @@ const Authorization = () => {
                     </Card>
                 </form>
             </Container>
-            {/* <Dialog open={welcomDialogOpen}>
-                <DialogTitle>
-                    Login success
-                </DialogTitle>
-                <DialogContent>
-                    <Typography variant='h3'>
-                        Welcom
-                     //   Welcom, {login}
-                    </Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleOnDialogClose}>Close</Button>
-                </DialogActions>
-            </Dialog> */}
+
         </>
     )
 }

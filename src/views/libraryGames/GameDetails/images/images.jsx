@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ImageList, Stack } from '@mui/material';
+import { ImageList, Box } from '@mui/material';
 import ImagesItem from './ImagesItem'
 import { getById } from '../../../../service/images'
 import Alert from '@mui/material/Alert';
@@ -34,13 +34,28 @@ const Images = ({ id }) => {
 			return <Alert severity="info">No images found</Alert>
 		}
 		return (
-			<Stack sx={{ overflow: 'auto' }}>
+			<Box sx={{
+				overflow: 'auto',
+
+				'&::-webkit-scrollbar': {
+					width: '10px'
+				},
+				'&::-webkit-scrollbar-track': {
+					'-webkit-box-shadow': '5px 5px 5px - 5px rgba(34, 60, 80, 0.2) inset',
+					backgroundColor: ' #f9f9fd',
+					borderRadius: '10px'
+				},
+				'&::-webkit-scrollbar-thumb': {
+					borderRadius: '10px',
+					background: 'linear-gradient(180deg, #00c6fb, #005bea)'
+				}
+			}}>
 				<ImageList variant="masonry" cols={3} gap={4} >
 					{imagesGame?.map((image) => (
 						< ImagesItem key={image.id} images={image} />
 					))}
 				</ImageList >
-			</Stack>
+			</Box >
 		)
 	}, [imagesGame, id])
 

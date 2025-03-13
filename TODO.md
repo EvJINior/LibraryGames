@@ -1,6 +1,6 @@
-- Redo component <Loading>, you should del prossents in loading 
+- Redo component <Loading>, you should del prossents in loading +
 
-- Add user profile
+- Add user profile +-
 - Change name
 - Change password
 - Change language https://www.npmjs.com/package/react-i18next
@@ -9,7 +9,7 @@
 
 -https://go.dev/ website 
 
-- Zeka asked to add here something about "height"
+- Zeka asked to add here something about "height" +?
 
 
 
