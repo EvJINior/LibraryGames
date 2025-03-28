@@ -43,7 +43,7 @@ const Comments = ({ id }) => {
 		const postComment = {
 			gameID: id,
 			iconUser: userDate.iconUser || '',
-			nickUser: userDate.login,
+			nickUser: userDate.nickName || 'noName',
 			commentUser: value,
 		}
 

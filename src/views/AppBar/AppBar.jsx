@@ -20,7 +20,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
-import Auth from '../Auth';
+import Auth from '../Authorization/Auth';
 
 const pages = ['Library', 'Profile'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -53,12 +53,12 @@ const ResponsiveAppBar = ({ setSwitchingElements }) => {
         // if (event.target.innerText === "PROFILE") {
         //     console.log(event.target.innerText)
     };
-    const handleBack = (event) => {
-        return (<Routes>
-            <Route path='/' element={<Profile />} />
-        </Routes>
-        )
-    };
+    // const handleBack = (event) => {
+    //     return (<Routes>
+    //         <Route path='/' element={<Profile />} />
+    //     </Routes>
+    //     )
+    // };
 
     const handleProfil = useCallback((event) => {
         setSwitchingElements('PROFILE')
@@ -70,7 +70,7 @@ const ResponsiveAppBar = ({ setSwitchingElements }) => {
             <Container maxWidth='x2' sx={{}}>
                 <Toolbar disableGutters>
                     <Box >
-                        <IconButton onClick={handleBack} sx={{ color: 'white' }}>
+                        <IconButton onClick={handleProfil} sx={{ color: 'white' }}>
                             <ArrowBackIcon />
 
                         </IconButton>

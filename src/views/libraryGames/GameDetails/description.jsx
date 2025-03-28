@@ -5,7 +5,7 @@ const Description = ({ agreementGameID }) => {
 
     return (
         <Stack padding={2} sx={{ color: '#b5b5b5', overflow: 'auto' }}>
-            <Typography>
+            <Typography  >
                 {agreementGameID?.descriptions}
             </Typography>
         </Stack>

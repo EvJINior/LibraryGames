@@ -24,8 +24,8 @@ const GameDetails = ({ id = 0 }) => {
 		setIsLoading(true)
 		// setInterval(() => {
 
-		getByID(id).then((data) =>
-			data?.forEach((item) => {
+		getByID(id).then(data =>
+			data?.forEach(item => {
 				setAgreementGameID(item)
 			}))
 			.finally(() => setIsLoading(false))

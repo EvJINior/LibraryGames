@@ -6,13 +6,15 @@ import { Box, Card, Container, Divider, Stack, TextField, Typography, Grid, Card
 import AppBar from './AppBar/AppBar'
 
 import Profile from './AppBar/Profile'
+import EditProfile from './AppBar/Profile/EditProfile.jsx'
+import Security from './AppBar/Profile/Security.jsx'
 
 const Library = () => {
 	const [gameID, setGameID] = useState(0)
 	const [switchingElements, setSwitchingElements] = useState(0)
-	console.log(switchingElements)
 
 	const currentTab = useMemo(() => {
+
 		switch (switchingElements) {
 			case 'lIBRARY':
 				return (<Card elevation={3}
@@ -28,7 +30,11 @@ const Library = () => {
 					</Box>
 				</Card >)
 			case 'PROFILE':
-				return (<Profile />)
+				return (<Profile setSwitchingElements={setSwitchingElements} />)
+			case 'EDITPROFILE':
+				return (<EditProfile setSwitchingElements={setSwitchingElements} />)
+			case 'SECURITY':
+				return (<Security setSwitchingElements={setSwitchingElements} />)
 			default:
 				return (
 
@@ -48,10 +54,11 @@ const Library = () => {
 					</Card >
 				)
 		}
-	}, [switchingElements, gameID])
+	}, [switchingElements, gameID, setSwitchingElements])
 
 	return (
 		<>
+
 			<Container
 				maxWidth="xl"
 				sx={{

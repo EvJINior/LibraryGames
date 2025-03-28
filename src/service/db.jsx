@@ -1,4 +1,4 @@
-import { getList, getID } from '../api/db'
+import { getList, getID, getObjCountries } from '../api/db'
 
 const getByList = () => {
     return getList()
@@ -28,4 +28,18 @@ const getByID = id => {
         })
 }
 
-export { getByList, getByID }
+const getCountries = id => {
+    return getObjCountries(id)
+        .then(data => {
+
+            return Promise.resolve(data)
+        })
+
+        .catch(error => {
+            return Promise.reject(error)
+        })
+}
+
+export { getByList, getByID, getCountries }
+
+

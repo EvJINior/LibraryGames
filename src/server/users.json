@@ -6,19 +6,36 @@
       "id": "dc43"
     },
     {
-      "login": "creator",
-      "password": "1",
-      "id": "19fb"
+      "id": "8816",
+      "nickName": "DjD",
+      "login": "qwe",
+      "password": "1234",
+      "passwordAgain": "1234"
     },
     {
-      "id": "7f92",
-      "login": "creogeen",
-      "password": "1"
+      "id": "06c1",
+      "nickName": "Sew",
+      "login": "sew",
+      "password": "234",
+      "passwordAgain": "234"
     },
     {
-      "id": "4dfc",
-      "login": "1",
-      "password": "2"
+      "id": "3c50",
+      "login": "Kov",
+      "password": "zxc",
+      "passwordAgain": "zxc",
+      "nickName": "Dara",
+      "countre": "не указано",
+      "info": ""
+    },
+    {
+      "id": "4efe37c",
+      "nickName": "DjD",
+      "login": "te",
+      "password": "12",
+      "passwordAgain": "12",
+      "countre": "Виргинские Острова (США)",
+      "info": ""
     }
   ]
 }

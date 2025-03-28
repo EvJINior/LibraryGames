@@ -33,6 +33,9 @@ const GamesList = ({ onChange, gameID }) => {
 		findGamesRequest()
 	}, [])
 
+	// console.log("games")
+	// console.log(games)
+
 	const handleOnOpenCards = useCallback(() => {
 		onChange(-1)
 	}, [onChange])
